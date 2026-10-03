@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doggy's - Completos y Hot Dogs</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top barra">
+  <div class="container">
+    <a class="navbar-brand marca" href="#inicio">Doggy's</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menuPrincipal">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+        <span class="text-white d-none" id="saludo"></span>
+        <button class="btn btn-outline-warning position-relative" data-bs-toggle="offcanvas" data-bs-target="#carrito">
+          Carrito
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="contadorCarrito">0</span>
+        </button>
+        <button class="btn btn-warning" id="btnAcceder" data-bs-toggle="modal" data-bs-target="#modalAcceso">Acceder</button>
+        <button class="btn btn-secondary d-none" id="btnSalir">Salir</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div id="inicio" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#inicio" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#inicio" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#inicio" data-bs-slide-to="2"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://images.pexels.com/photos/4113472/pexels-photo-4113472.jpeg?auto=compress&cs=tinysrgb&w=1400" class="d-block w-100 imagen-carrusel" alt="Hot dogs">
+      <div class="carousel-caption">
+        <h2>Completos 100% naturales</h2>
+        <p>Ingredientes frescos todos los días</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://images.pexels.com/photos/4113458/pexels-photo-4113458.jpeg?auto=compress&cs=tinysrgb&w=1400" class="d-block w-100 imagen-carrusel" alt="Combo doble">
+      <div class="carousel-caption">
+        <h2>Combo Doble</h2>
+        <p>Dos hot dogs, papas grandes y dos bebidas</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://images.pexels.com/photos/4113504/pexels-photo-4113504.jpeg?auto=compress&cs=tinysrgb&w=1400" class="d-block w-100 imagen-carrusel" alt="Italiano">
+      <div class="carousel-caption">
+        <h2>El clásico italiano</h2>
+        <p>Tomate, palta y mayonesa</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#inicio" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#inicio" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<section id="productos" class="container py-5">
+  <h2 class="text-center titulo mb-4">Nuestros productos</h2>
+  <div class="text-center mb-4" id="filtros">
+    <button class="btn btn-warning active" data-cat="Todos">Todos</button>
+    <button class="btn btn-outline-warning" data-cat="Italianos">Italianos</button>
+    <button class="btn btn-outline-warning" data-cat="Dinámicos">Dinámicos</button>
+    <button class="btn btn-outline-warning" data-cat="Americanos">Americanos</button>
+    <button class="btn btn-outline-warning" data-cat="Combos">Combos</button>
+  </div>
+  <div class="row g-4" id="listaProductos"></div>
+</section>
+
+<section id="nosotros" class="fondo-claro py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-6 mb-3">
+        <img src="https://images.pexels.com/photos/4113458/pexels-photo-4113458.jpeg?auto=compress&cs=tinysrgb&w=900" class="img-fluid rounded" alt="Doggy's">
+      </div>
+      <div class="col-12 col-md-6">
+        <h2 class="titulo">Sobre nosotros</h2>
+        <p>Somos un local de completos y hot dogs al estilo chileno. Cada pedido se prepara al momento con ingredientes frescos.</p>
+        <p>Hacemos delivery gratuito dentro de 3 kilómetros a la redonda y también atendemos pedidos para retiro en el local.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="container py-5">
+  <h2 class="text-center titulo mb-4">Contacto</h2>
+  <div class="row">
+    <div class="col-12 col-md-6 mb-4">
+      <form id="formContacto" novalidate>
+        <div class="mb-3">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="contactoNombre">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Correo</label>
+          <input type="email" class="form-control" id="contactoCorreo">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Mensaje</label>
+          <textarea class="form-control" rows="4" id="contactoMensaje"></textarea>
+        </div>
+        <button type="submit" class="btn btn-warning">Enviar mensaje</button>
+        <div id="respuestaContacto"></div>
+      </form>
+    </div>
+    <div class="col-12 col-md-6">
+      <h5>Datos del local</h5>
+      <p>Teléfono: +56 9 1234 5678</p>
+      <p>Correo: hola@doggys.cl</p>
+      <p>Horario: lunes a domingo, 11:00 a 23:30</p>
+    </div>
+  </div>
+</section>
+
+<footer class="barra text-white text-center py-3">
+  <p class="mb-0">&copy; 2026 Doggy's - Darien Mauna y Fiona Castro</p>
+</footer>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="carrito">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Tu pedido</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="list-group mb-3" id="itemsCarrito"></ul>
+    <p class="fw-bold">Total: <span id="totalCarrito">$0</span></p>
+    <button class="btn btn-warning w-100" id="btnConfirmar">Confirmar pedido</button>
+    <div id="mensajeCarrito"></div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalAcceso" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Mi cuenta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3">
+          <li class="nav-item">
+            <button class="nav-link active" id="tab-login" data-bs-toggle="tab" data-bs-target="#panelLogin" type="button">Ingresar</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" id="tab-registro" data-bs-toggle="tab" data-bs-target="#panelRegistro" type="button">Registrarse</button>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="panelLogin">
+            <form id="formLogin" novalidate>
+              <input type="email" class="form-control mb-2" id="loginCorreo" placeholder="Correo">
+              <input type="password" class="form-control mb-2" id="loginClave" placeholder="Contraseña">
+              <button type="submit" class="btn btn-warning w-100">Ingresar</button>
+            </form>
+            <div id="mensajeLogin"></div>
+          </div>
+          <div class="tab-pane fade" id="panelRegistro">
+            <form id="formRegistro" novalidate>
+              <input type="text" class="form-control mb-2" id="regNombre" placeholder="Nombre">
+              <input type="email" class="form-control mb-2" id="regCorreo" placeholder="Correo">
+              <input type="password" class="form-control mb-2" id="regClave" placeholder="Contraseña (mínimo 6 caracteres)">
+              <button type="submit" class="btn btn-warning w-100">Crear cuenta</button>
+            </form>
+            <div id="mensajeRegistro"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

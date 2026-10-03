@@ -1,0 +1,60 @@
+:root {
+  --mostaza: #E8A400;
+  --rojo: #C1372D;
+  --cafe: #2A1810;
+  --crema: #FFF8ED;
+}
+
+body {
+  background-color: #ffffff;
+  color: var(--cafe);
+}
+
+.barra {
+  background-color: var(--cafe);
+}
+
+.marca {
+  color: var(--mostaza);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.imagen-carrusel {
+  height: 450px;
+  object-fit: cover;
+}
+
+.titulo {
+  color: var(--rojo);
+  font-weight: bold;
+}
+
+.fondo-claro {
+  background-color: var(--crema);
+}
+
+.tarjeta img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.tarjeta {
+  transition: transform 0.2s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+}
+
+.precio {
+  color: var(--rojo);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 576px) {
+  .imagen-carrusel {
+    height: 280px;
+  }
+}
