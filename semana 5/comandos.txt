@@ -1,0 +1,35 @@
+cd semana5
+copy .env.example .env        (Mac/Linux/Git Bash: cp .env.example .env)
+npm install
+npm start
+
+Antes de iniciar: abrir el archivo .env y poner el usuario y la clave reales de Atlas.
+En Atlas (Network Access) permitir la IP del computador.
+Abrir en el navegador: http://localhost:8090/graphql
+
+Pruebas:
+
+mutation {
+  addProducto(input: { nombre: "Completo Italiano", categoria: "Italianos", precio: 2500, disponible: true }) {
+    id
+    nombre
+    precio
+  }
+}
+
+query {
+  getProductos {
+    id
+    nombre
+    categoria
+    precio
+    disponible
+  }
+}
+
+mutation {
+  addPedido(input: { cliente: "Fiona Castro", telefono: "+56912345678", total: 5700 }) {
+    id
+    estado
+  }
+}
